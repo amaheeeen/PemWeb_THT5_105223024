@@ -1,0 +1,67 @@
+/* Gaya dasar untuk tampilan yang lebih baik */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Tahap 2: Arsitektur Layout (CSS Grid) */
+#mission-control {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Tahap 3 & 5: Penataan Internal & Protokol Standar */
+.asset-card {
+    display: flex;
+    flex-direction: column; 
+
+    background-color: #1e1e1e;
+    border: 2px solid #555; 
+    padding: 15px;
+    box-sizing: border-box; 
+    
+    position: relative; 
+    transition: border-color 1s ease; /* Transisi untuk border hover */
+}
+
+.asset-status {
+    margin-top: auto;
+    color: #00ff88;
+}
+
+.asset-card::after {
+    content: "Buka Arsip Proyek";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* kondisi awal sebelum hover */
+    opacity: 0; 
+    
+    transition: opacity 0.3s ease;
+}
+
+.asset-card:hover::after {
+    opacity: 1;
+}
+
+#priority-alpha {
+    border-color: #00FFFF;
+}
+
+#mission-control .asset-card:hover {
+    border-color: #FF00FF;
+}
